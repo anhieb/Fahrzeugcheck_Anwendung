@@ -7,6 +7,8 @@ namespace Fahrzeugcheck_Anwendung.Models
         private string kennzeichen;
         private Fahrzeugtyp fahrzeugtyp;
 
+        private DateTime hauptuntersuchungstermin;
+
         public string Kennzeichen
         {
             get { return kennzeichen; }
@@ -19,10 +21,17 @@ namespace Fahrzeugcheck_Anwendung.Models
             set { fahrzeugtyp = value; }
         }
 
-        public Fahrzeug(string kennzeichen, Fahrzeugtyp fahrzeugtyp)
+        public DateTime Hauptuntersuchungstermin
+        {
+            get { return hauptuntersuchungstermin; }
+            set { hauptuntersuchungstermin = value; }
+        }
+
+        public Fahrzeug(string kennzeichen, Fahrzeugtyp fahrzeugtyp, DateTime hauptuntersuchungstermin)
         {
             this.kennzeichen = kennzeichen;
             this.fahrzeugtyp = fahrzeugtyp;
+            this.hauptuntersuchungstermin = hauptuntersuchungstermin;
         }
     }
     
