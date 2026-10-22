@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Fahrzeugcheck_Anwendung.Models
 {
@@ -21,6 +17,12 @@ namespace Fahrzeugcheck_Anwendung.Models
         {
             get { return fahrzeugtyp; }
             set { fahrzeugtyp = value; }
+        }
+
+        public Fahrzeug(string kennzeichen, Fahrzeugtyp fahrzeugtyp)
+        {
+            this.kennzeichen = kennzeichen;
+            this.fahrzeugtyp = fahrzeugtyp;
         }
     }
     
