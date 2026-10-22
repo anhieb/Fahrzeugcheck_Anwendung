@@ -49,7 +49,37 @@ namespace Fahrzeugcheck_Anwendung.Models
             this.bemerkung = string.Empty;
             this.pruefpunkte = new List<Pruefpunkt>();
 
-        } 
+        }
+
+        public int ZaehleOffenePruefpunkte()
+        {
+            int zaehler = 0;
+
+            foreach (Pruefpunkt pruefpunkt in this.pruefpunkte)
+            {
+                if (pruefpunkt.Zustand == Zustand.Ungeprueft)
+                {
+                    zaehler++;
+                }
+            }
+
+            return zaehler;
+        }
+        
+        public int ZaehleMaengel()
+        {
+            int zaehler = 0;
+
+            foreach (Pruefpunkt pruefpunkt in this.pruefpunkte)
+            {
+                if (pruefpunkt.Zustand == Zustand.Mangel)
+                {
+                    zaehler++;
+                }
+            }
+
+            return zaehler;
+        }
 
     }
 }
