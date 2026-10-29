@@ -51,34 +51,29 @@ namespace Fahrzeugcheck_Anwendung.Models
 
         }
 
-        public int ZaehleOffenePruefpunkte()
+        public (int Ungeprueft, int Mangel, int OK) ZaehlePruefpunkte()
         {
-            int zaehler = 0;
+            int Ungeprueft = 0;
+            int Mangel = 0;
+            int OK = 0;
 
             foreach (Pruefpunkt pruefpunkt in this.pruefpunkte)
             {
                 if (pruefpunkt.Zustand == Zustand.Ungeprueft)
                 {
-                    zaehler++;
+                    Ungeprueft++;
                 }
-            }
-
-            return zaehler;
-        }
-        
-        public int ZaehleMaengel()
-        {
-            int zaehler = 0;
-
-            foreach (Pruefpunkt pruefpunkt in this.pruefpunkte)
-            {
-                if (pruefpunkt.Zustand == Zustand.Mangel)
+                else if (pruefpunkt.Zustand == Zustand.Mangel)
                 {
-                    zaehler++;
+                    Mangel++;
+                }
+                else if (pruefpunkt.Zustand == Zustand.OK)
+                {
+                    OK++;
                 }
             }
 
-            return zaehler;
+            return (Ungeprueft, Mangel, OK);
         }
 
     }
